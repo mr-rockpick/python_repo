@@ -24,3 +24,7 @@
 """
 
 vlans = [10, 20, 30, 1, 2, 100, 10, 30, 3, 4, 10]
+c = set(vlans)
+result1 = list(c)
+result = sorted(result1)
+print(result)
