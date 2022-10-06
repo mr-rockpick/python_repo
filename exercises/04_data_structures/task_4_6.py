@@ -28,3 +28,14 @@ Next-Hop              {}
 Last update           {}
 Outbound Interface    {}
 """
+route = ospf_route.split()
+route.remove('via')
+pref = route[0]
+ad1 = route[1]
+nexthop1 = route[2]
+nexthop = nexthop1.rstrip(',')
+lastup1 = route[3]
+lastup = lastup1.rstrip(',')
+outint = route[4]
+ad = ad1.strip('[]')
+print(template.format(pref, ad, nexthop, lastup, outint))

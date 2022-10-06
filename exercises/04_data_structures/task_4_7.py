@@ -16,3 +16,17 @@
 """
 
 mac = "AAAA:BBBB:CCCC"
+newmac = mac.replace(':', ' ')
+mac1 = newmac.split()
+#print(mac1)
+a = mac1[0]
+aa = int(a, 16)
+b = mac1[1]
+bb = int(b, 16)
+c = mac1[2]
+cc = int(c, 16)
+#print(aa, bb, cc)
+result1 = '{:b} {:b} {:b}'.format(aa, bb, cc)
+#print(result1)
+string1 = result1.replace(' ', '')
+print(string1)
