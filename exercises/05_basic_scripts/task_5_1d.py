@@ -43,3 +43,10 @@ london_co = {
         "routing": True,
     },
 }
+
+eq = input('Enter the name of equipment: ')
+list_keys = list(london_co[eq].keys())
+string1 = ', '.join(list_keys)
+param1 = input('Enter the parameter of equipment ({}): '.format(string1))
+param = param1.lower()
+print((london_co[eq]).get(param, 'Такого параметра нет'))

@@ -19,6 +19,9 @@ $ python task_5_1a.py
 решить без использования условия if.
 """
 
+eq = input('Enter the name of equipment: ')
+param = input('Enter the parameter of equipment ')
+
 london_co = {
     "r1": {
         "location": "21 New Globe Walk",
@@ -44,3 +47,5 @@ london_co = {
         "routing": True,
     },
 }
+
+print(london_co[eq][param])
