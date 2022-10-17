@@ -49,3 +49,74 @@ bin_ip = "00001010000000010000000111000011"
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+
+network_template = '''
+Network:
+{0:<8}  {1:<8}  {2:<8}  {3:<8}
+{0:08b}  {1:08b}  {2:08b}  {3:08b}
+'''
+
+mask_template = '''
+Mask:
+/{mask}
+{0:<8}  {1:<8}  {2:<8}  {3:<8}
+{0:08b}  {1:08b}  {2:08b}  {3:08b}
+'''
+
+ip = input('Please, enter a network address in a format like this 10.1.1.0/24: ')
+#ip = '192.168.10.195/24'
+ip_list = ip.split('/')
+#print(ip_list)
+
+
+network = ip_list[0]
+#print(network)
+x = network.replace('.', ' ')
+y = x.split()
+a = y[0]
+aa = int(a)
+b = y[1]
+bb = int(b)
+c = y[2]
+cc = int(c)
+d = y[3]
+dd = int(d)
+a1 = bin(aa)
+
+
+mask1 = int(ip_list[1])
+#print(mask1)
+mask2 = int(mask1)
+mask = '1' * mask2 + '0' * (32 - mask2)
+#print(mask)
+i1 = mask[0:8]
+i2 = mask[8:16]
+i3 = mask[16:24]
+i4 = mask[24:32]
+#print(i1, i2, i3, i4)
+j1 = int(i1, 2)
+j2 = int(i2, 2)
+j3 = int(i3, 2)
+j4 = int(i4, 2)
+#print(j1, j2, j3, j4)
+
+
+sum = ('{0:08b}{1:08b}{2:08b}{3:08b}'.format(aa, bb, cc, dd))
+#print(sum)
+newsum = sum[0:mask1] + ((32 - mask1) * '0')
+#print(newsum)
+
+str1 = newsum[0:8]
+str2 = newsum[8:16]
+str3 = newsum[16:24]
+str4 = newsum[24:32]
+#print(str1, str2, str3, str4)
+
+num1 = int(str1, 2)
+num2 = int(str2, 2)
+num3 = int(str3, 2)
+num4 = int(str4, 2)
+print(num1, num2, num3, num4)
+
+print(network_template.format(num1, num2, num3, num4))
+print(mask_template.format(j1, j2, j3, j4, mask=mask1))
