@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*
 """
 Задание 7.2
 
@@ -39,3 +40,14 @@ interface Ethernet0/3
 ...
 
 """
+
+
+from sys import argv
+file = argv[1]
+
+with open(file) as f:
+    for line in f:
+        if line.startswith('!'):
+            pass
+        else:
+            print(line.rstrip())

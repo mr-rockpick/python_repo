@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Задание 7.2a
@@ -16,4 +17,20 @@
 
 """
 
+from sys import argv
+file = argv[1]
+
 ignore = ["duplex", "alias", "configuration"]
+
+with open(file) as f:
+    for line in f:
+        if line.startswith('!'):
+            pass
+        elif ignore[0] in line:
+            pass
+        elif ignore[1] in line:
+            pass
+        elif ignore[2] in line:
+            pass
+        else:
+            print(line.rstrip())
