@@ -64,3 +64,19 @@ def ignore_command(command, ignore):
         if word in command:
             ignore_status = True
     return ignore_status
+
+def convert_config_to_dict(config_filename):
+    dict_config = {}
+    with open(config_filename) as f:
+        for line in f:
+            line = line.rstrip()
+            if line and not (line.startswith('!') or ignore_command(line, ignore)):
+                #print(line)
+                if line[0].isalnum():
+                    section = line
+                    #print(section)
+                    dict_config[section] = []
+                    #print(dict_config)
+                else:
+                    dict_config[section].append(line.strip())
+    return dict_config
